@@ -1,0 +1,11 @@
+(SELECT "gameid" as gameid, "datacompleteness" as datacompleteness, "url" as url, "league" as league, 
+"year" as year, "split" as split, "playoffs" as playoffs, "date" as date, "game" as game, "patch" as patch, 
+"participantid" as participantid, "side" as side, "position" as position, "playername" as playername, 
+"playerid" as playerid, "teamname" as teamname, "teamid" as teamid, "champion" as champion, "ban1" as ban1, 
+"ban2" as ban2 FROM read_csv_auto('.\\2024_LoL_esports_match_data_from_OraclesElixir.csv')) AS data
+
+Then run: SELECT data.safe_column FROM (SELECT "gameid" as gameid, "datacompleteness" as datacompleteness, 
+"url" as url, "league" as league, "year" as year, "split" as split, "playoffs" as playoffs, "date" as date, 
+"game" as game, "patch" as patch, "participantid" as participantid, "side" as side, "position" as position, 
+"playername" as playername, "playerid" as playerid, "teamname" as teamname, "teamid" as teamid, "champion" as champion, 
+"ban1" as ban1, "ban2" as ban2 FROM read_csv_auto('.\\2024_LoL_esports_match_data_from_OraclesElixir.csv')) AS data LIMIT 5

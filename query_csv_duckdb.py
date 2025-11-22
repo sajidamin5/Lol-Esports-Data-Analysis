@@ -2,14 +2,15 @@
 Simple utility script to run SQL queries against a CSV file using DuckDB.
 
 Usage examples:
-    # Show first rows
-    python query_csv_duckdb.py --csv "c:/Users/Sajid/Desktop/Data analysis/2024_LoL_esports_match_data_from_OraclesElixir.csv"
+
+    # WORKING:
+    python query_csv_duckdb.py --csv ".\2024_LoL_esports_match_data_from_OraclesElixir.csv" --sanitize --query "SELECT data.gameid, data.teamname, data.playername FROM read_csv_auto('{csv}') AS data LIMIT 10"
 
     # Show columns & detected schema
-    python query_csv_duckdb.py --csv "c:/Users/Sajid/Desktop/Data analysis/2024_LoL_esports_match_data_from_OraclesElixir.csv" --show-columns
+    python query_csv_duckdb.py --csv ".\2024_LoL_esports_match_data_from_OraclesElixir.csv" --show-columns
 
     # Show sanitized SQL-safe column mapping
-    python query_csv_duckdb.py --csv "c:/Users/Sajid/Desktop/Data analysis/2024_LoL_esports_match_data_from_OraclesElixir.csv" --show-safe
+    python query_csv_duckdb.py --csv ".\2024_LoL_esports_match_data_from_OraclesElixir.csv" --show-safe
 
     # Count rows
     python query_csv_duckdb.py --csv "{csv}" --count
