@@ -1,0 +1,26 @@
+# Python/venv
+venv/
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-wheel-metadata/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints
+
+# OS / Editor
+Thumbs.db
+.DS_Store
+.vscode/
+
+# Large data files - ignore specific large CSVs
+2024_LoL_esports_match_data_from_OraclesElixir.csv
+data/*.csv
+
+# Additional (if you use Git LFS, remove the file from ignore)
+*.sqlite
