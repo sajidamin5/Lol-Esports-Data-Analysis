@@ -20,6 +20,8 @@ Thumbs.db
 
 # Large data files - ignore specific large CSVs
 2024_LoL_esports_match_data_from_OraclesElixir.csv
+2025_LoL_esports_match_data_from_OraclesElixir.csv
+2014_LoL_esports_match_data_from_OraclesElixir.csv
 data/*.csv
 
 # Additional (if you use Git LFS, remove the file from ignore)

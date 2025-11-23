@@ -1,10 +1,50 @@
-(SELECT "gameid" as gameid, "datacompleteness" as datacompleteness, "url" as url, "league" as league, 
-"year" as year, "split" as split, "playoffs" as playoffs, "date" as date, "game" as game, "patch" as patch, 
-"participantid" as participantid, "side" as side, "position" as position, "playername" as playername, 
-"playerid" as playerid, "teamname" as teamname, "teamid" as teamid, "champion" as champion, "ban1" as ban1, 
-"ban2" as ban2 FROM read_csv_auto('.\\2024_LoL_esports_match_data_from_OraclesElixir.csv')) AS data
 
-Then run: SELECT data.safe_column FROM (SELECT "gameid" as gameid, "datacompleteness" as datacompleteness, 
+venv prefix:
+python query_csv_duckdb.py --csv ".\2024_LoL_esports_match_data_from_OraclesElixir.csv"
+ 
+
+ Query List:
+ --sanitize --query "SELECT data.gameid, data.teamname, data.playername FROM read_csv_auto('{csv}') AS data LIMIT 10"
+ --sanitize --query "SELECT data.gameid, data.teamname, data.playername FROM read_csv_auto('{csv}') AS dataWHERE data.champion = 'Zilean'"
+ --sanitize --query "SELECT data.teamname FROM read_csv_auto('{csv}') AS data GROUP BY data.teamname"
+ --sanitize --query "SELECT data.gameid, data.teamname, data.playername FROM read_csv_auto('{csv}') AS data WHERE data.champion = 'Tryndamere' AND data.playername = 'ShowMaker'"
+
+TIMESTAMPS:
+418
+911
+
+
+(
+    SELECT
+
+        "gameid"           AS gameid,
+        "datacompleteness" AS datacompleteness,
+        "url"              AS url,
+        "league"           AS league,
+        "year"             AS year,
+        "split"            AS split,
+        "playoffs"         AS playoffs,
+        "date"             AS date,
+        "game"             AS game,
+        "patch"            AS patch,
+        "participantid"    AS participantid,
+        "side"             AS side,
+        "position"         AS position,
+        "playername"       AS playername,
+        "playerid"         AS playerid,
+        "teamname"         AS teamname,
+        "teamid"           AS teamid,
+        "champion"         AS champion,
+        "ban1"             AS ban1,
+        "ban2"             AS ban2
+
+    FROM read_csv_auto('.\\2024_LoL_esports_match_data_from_OraclesElixir.csv')
+
+) AS data
+
+Then run:
+
+SELECT data.safe_column FROM (SELECT "gameid" as gameid, "datacompleteness" as datacompleteness, 
 "url" as url, "league" as league, "year" as year, "split" as split, "playoffs" as playoffs, "date" as date, 
 "game" as game, "patch" as patch, "participantid" as participantid, "side" as side, "position" as position, 
 "playername" as playername, "playerid" as playerid, "teamname" as teamname, "teamid" as teamid, "champion" as champion, 
